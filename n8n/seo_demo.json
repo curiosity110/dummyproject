@@ -1,0 +1,77 @@
+{
+  "name": "seo_demo",
+  "nodes": [
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {"name": "website", "value": "https://vodenica-strumica.mk"}
+          ]
+        },
+        "options": {}
+      },
+      "id": "Input",
+      "name": "Input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {"name": "audit", "value": "{\\"issues\\":[\\"Missing meta description\\"],\\"fixes\\":[\\"Add meta description\\"]}"}
+          ]
+        },
+        "options": {}
+      },
+      "id": "Audit",
+      "name": "Mock Audit",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [200, 0]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "paired"
+      },
+      "id": "Merge",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 1,
+      "position": [400, 0]
+    },
+    {
+      "parameters": {
+        "operation": "toFile",
+        "binaryPropertyName": "data"
+      },
+      "id": "Sheet",
+      "name": "Spreadsheet File",
+      "type": "n8n-nodes-base.spreadsheetFile",
+      "typeVersion": 1,
+      "position": [600, 0]
+    },
+    {
+      "parameters": {
+        "fileName": "seo_audit.xlsx",
+        "binaryData": true,
+        "dataPropertyName": "data"
+      },
+      "id": "Write",
+      "name": "Write Binary File",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "typeVersion": 1,
+      "position": [800, 0]
+    }
+  ],
+  "connections": {
+    "Input": {"main": [[{"node": "Merge", "type": "main", "index": 0}]]},
+    "Mock Audit": {"main": [[{"node": "Merge", "type": "main", "index": 1}]]},
+    "Merge": {"main": [[{"node": "Spreadsheet File", "type": "main", "index": 0}]]},
+    "Spreadsheet File": {"main": [[{"node": "Write Binary File", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "version": 1
+}
