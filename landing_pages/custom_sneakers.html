@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>KickCrafter - Custom Sneaker Shop</title>
+<style>
+ body{font-family:'Roboto', sans-serif; margin:0; background:#fafafa; color:#111;}
+ header{background:#212121; color:#fff; padding:50px; text-align:center;}
+ section{padding:40px; text-align:center;}
+ .cta{background:#ff1744; color:#fff; padding:15px 30px; border:none; cursor:pointer; font-size:1.1em;}
+ #dashboard{background:#fce4ec;}
+</style>
+</head>
+<body>
+<header>
+  <h1>KickCrafter</h1>
+  <p>Design sneakers that match your vibe</p>
+</header>
+<section>
+  <h2>Customize</h2>
+  <p>Select colors, fabrics, and artwork for a unique pair.</p>
+  <button class="cta">Design Yours</button>
+</section>
+<section id="dashboard">
+  <h2>Sales Stats</h2>
+  <p>Revenue: $<span id="revenue">0</span></p>
+</section>
+<script>
+ let rev=0; setInterval(()=>{rev+=Math.floor(Math.random()*80)+40;document.getElementById('revenue').innerText=rev;},4500);
+</script>
+</body>
+</html>

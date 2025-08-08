@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>ScriptGenie - AI Writing Assistant</title>
+<style>
+ body{font-family:'Segoe UI', sans-serif; margin:0; background:#f0f4f8; color:#222;}
+ header{background:#3949ab; color:#fff; padding:60px; text-align:center;}
+ section{padding:40px; text-align:center;}
+ .cta{background:#3949ab; color:#fff; padding:15px 30px; border:none; cursor:pointer; font-size:1.1em;}
+ #dashboard{background:#e8eaf6;}
+</style>
+</head>
+<body>
+<header>
+  <h1>ScriptGenie</h1>
+  <p>Generate content 10x faster</p>
+</header>
+<section>
+  <h2>Smart Drafts</h2>
+  <p>Transform ideas into polished copy instantly.</p>
+  <button class="cta">Try it Free</button>
+</section>
+<section id="dashboard">
+  <h2>Revenue Monitor</h2>
+  <p>Revenue: $<span id="revenue">0</span></p>
+</section>
+<script>
+ let rev=0; setInterval(()=>{rev+=Math.floor(Math.random()*60)+20;document.getElementById('revenue').innerText=rev;},3200);
+</script>
+</body>
+</html>

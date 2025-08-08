@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>WanderVR - Virtual Travel Experiences</title>
+<style>
+ body{font-family:'Quicksand', sans-serif; margin:0; background:#000; color:#e0f7fa;}
+ header{background:#004d40; color:#e0f7fa; padding:60px; text-align:center;}
+ section{padding:40px; text-align:center;}
+ .cta{background:#00bfa5; color:#fff; padding:15px 30px; border:none; cursor:pointer; font-size:1.1em;}
+ #dashboard{background:#00332e;}
+</style>
+</head>
+<body>
+<header>
+  <h1>WanderVR</h1>
+  <p>Explore the world without leaving home</p>
+</header>
+<section>
+  <h2>Immersive Journeys</h2>
+  <p>Experience iconic destinations in virtual reality.</p>
+  <button class="cta">Start Exploring</button>
+</section>
+<section id="dashboard">
+  <h2>Revenue Tracker</h2>
+  <p>Revenue: $<span id="revenue">0</span></p>
+</section>
+<script>
+ let rev=0; setInterval(()=>{rev+=Math.floor(Math.random()*120)+60;document.getElementById('revenue').innerText=rev;},4800);
+</script>
+</body>
+</html>
