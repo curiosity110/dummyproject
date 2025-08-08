@@ -1,0 +1,6 @@
+Analyze the restaurant website at {{url}} and return a JSON object:
+{
+  "issues": ["concise issue", ...],
+  "fixes": ["matching fix", ...]
+}
+Only return valid JSON.

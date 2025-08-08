@@ -1,0 +1,84 @@
+{
+  "name": "outreach_demo",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "Manual",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {"name": "name", "value": "Restaurant Vodenica"},
+            {"name": "phone", "value": "+38934311222"},
+            {"name": "approved", "value": "true"}
+          ]
+        },
+        "options": {}
+      },
+      "id": "Lead",
+      "name": "Lead",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [200, 0]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$json[\"approved\"]}}",
+              "operation": "isTrue"
+            }
+          ],
+          "string": [
+            {
+              "value1": "={{$json[\"phone\"]}}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "If",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [400, 0]
+    },
+    {
+      "parameters": {
+        "values": {"string": [{"name": "status", "value": "sent"}]},
+        "options": {}
+      },
+      "id": "Send",
+      "name": "Send",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [600, -80]
+    },
+    {
+      "parameters": {
+        "fileName": "whatsapp.log",
+        "data": "={{$json.name}} - {{$json.phone}}\n",
+        "append": true
+      },
+      "id": "Log",
+      "name": "Log",
+      "type": "n8n-nodes-base.writeTextFile",
+      "typeVersion": 1,
+      "position": [800, -80]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {"main": [[{"node": "Lead", "type": "main", "index": 0}]]},
+    "Lead": {"main": [[{"node": "IF", "type": "main", "index": 0}]]},
+    "IF": {"main": [[{"node": "Send", "type": "main", "index": 0}], []]},
+    "Send": {"main": [[{"node": "Log", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "version": 1
+}
