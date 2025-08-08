@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>ZenFlow - Virtual Yoga Studio</title>
+<style>
+ body{font-family:'Lora', serif; margin:0; background:#fef6e4; color:#333;}
+ header{background:#8ecae6; color:#fff; padding:50px; text-align:center;}
+ .cta{background:#ffb703; color:#fff; padding:15px 25px; border:none; font-size:1.2em; cursor:pointer;}
+ section{padding:40px; text-align:center;}
+ #dashboard{background:#fff;}
+</style>
+</head>
+<body>
+<header>
+  <h1>ZenFlow Yoga</h1>
+  <p>Stream live yoga classes from home</p>
+</header>
+<section>
+  <h2>Membership</h2>
+  <p>Join thousands finding balance with our guided sessions.</p>
+  <button class="cta">Start Free Trial</button>
+</section>
+<section id="dashboard">
+  <h2>Live Revenue</h2>
+  <p>Revenue: $<span id="revenue">0</span></p>
+</section>
+<script>
+ let rev=0; setInterval(()=>{rev+=Math.floor(Math.random()*30)+20;document.getElementById('revenue').innerText=rev;},4000);
+</script>
+</body>
+</html>

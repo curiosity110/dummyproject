@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>SolarPack - Solar Charging Backpack</title>
+<style>
+ body{font-family: 'Montserrat', sans-serif; margin:0; background:linear-gradient(#e3f2fd,#fff);} 
+ header{background:#ff9800; color:white; padding:40px 20px; text-align:center;} 
+ h1{margin:0;}
+ section{padding:40px 20px; text-align:center;} 
+ .cta{background:#ff9800; color:white; padding:15px 30px; border:none; cursor:pointer; font-size:1.2em;}
+ #dashboard{background:#fff3e0;}
+</style>
+</head>
+<body>
+<header>
+  <h1>SolarPack</h1>
+  <p>Charge your devices on the go with solar power</p>
+</header>
+<section>
+  <h2>Features</h2>
+  <p>Lightweight, durable, and eco-friendly backpack with built-in solar panel.</p>
+  <button class="cta">Buy Now</button>
+</section>
+<section id="dashboard">
+  <h2>Live Sales</h2>
+  <p>Revenue: $<span id="revenue">0</span></p>
+</section>
+<script>
+ let rev=0; setInterval(()=>{rev+=Math.floor(Math.random()*50)+10;document.getElementById('revenue').innerText=rev;},3000);
+</script>
+</body>
+</html>

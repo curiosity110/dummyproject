@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>FitCrate - Fitness Gear Subscription</title>
+<style>
+ body{font-family:'Arial', sans-serif; margin:0; background:#fff; color:#1a1a1a;}
+ header{background:#ff5722; color:#fff; padding:60px; text-align:center;}
+ section{padding:40px; text-align:center;}
+ .cta{background:#ff5722; color:#fff; padding:15px 30px; border:none; cursor:pointer; font-size:1.1em;}
+ #dashboard{background:#ffe0b2;}
+</style>
+</head>
+<body>
+<header>
+  <h1>FitCrate</h1>
+  <p>Monthly box of premium workout gear</p>
+</header>
+<section>
+  <h2>What's Inside?</h2>
+  <p>Get curated equipment and apparel delivered to your door.</p>
+  <button class="cta">Join Now</button>
+</section>
+<section id="dashboard">
+  <h2>Revenue Overview</h2>
+  <p>Revenue: $<span id="revenue">0</span></p>
+</section>
+<script>
+ let rev=0; setInterval(()=>{rev+=Math.floor(Math.random()*90)+45;document.getElementById('revenue').innerText=rev;},4100);
+</script>
+</body>
+</html>

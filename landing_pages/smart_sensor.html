@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Sensify - Smart Home Sensor</title>
+<style>
+ body{font-family:'Open Sans', sans-serif; margin:0; background:#e3f2fd; color:#0d47a1;}
+ header{background:#0d47a1; color:#fff; padding:60px; text-align:center;}
+ section{padding:40px; text-align:center;}
+ .cta{background:#1976d2; color:#fff; padding:15px 30px; border:none; cursor:pointer; font-size:1.1em;}
+ #dashboard{background:#bbdefb;}
+</style>
+</head>
+<body>
+<header>
+  <h1>Sensify</h1>
+  <p>Monitor your home from anywhere</p>
+</header>
+<section>
+  <h2>Smart Alerts</h2>
+  <p>Detect temperature, humidity, and motion in real-time.</p>
+  <button class="cta">Order Now</button>
+</section>
+<section id="dashboard">
+  <h2>Sales Monitor</h2>
+  <p>Revenue: $<span id="revenue">0</span></p>
+</section>
+<script>
+ let rev=0; setInterval(()=>{rev+=Math.floor(Math.random()*40)+20;document.getElementById('revenue').innerText=rev;},3600);
+</script>
+</body>
+</html>
